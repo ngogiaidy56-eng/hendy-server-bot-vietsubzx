@@ -1,0 +1,1 @@
+export function buildSubtitleLanding({title='Hendy Vietsub',subtitle=''}){return `<!doctype html><html lang="vi"><meta charset="utf-8"><title>${escapeHtml(title)}</title><body><main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(subtitle)}</p></main></body></html>`} function escapeHtml(s){return String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}

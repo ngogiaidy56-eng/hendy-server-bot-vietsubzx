@@ -1,0 +1,1 @@
+export function createWebhookSignature(secret,payload){return crypto.subtle.importKey('raw',new TextEncoder().encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']).then(k=>crypto.subtle.sign('HMAC',k,new TextEncoder().encode(payload))).then(b=>btoa(String.fromCharCode(...new Uint8Array(b))))}

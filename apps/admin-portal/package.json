@@ -1,0 +1,1 @@
+{"name":"@hendy/admin-portal","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite --port 5173","build":"vite build","preview":"vite preview"},"dependencies":{"@hendy/shared-types":"1.0.0","react":"^19.1.1","react-dom":"^19.1.1"},"devDependencies":{"@vitejs/plugin-react":"^5.0.4","tailwindcss":"^4.1.13","@tailwindcss/vite":"^4.1.13","vite":"^7.1.7"}}

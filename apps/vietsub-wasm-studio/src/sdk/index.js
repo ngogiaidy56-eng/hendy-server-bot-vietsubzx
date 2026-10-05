@@ -1,0 +1,1 @@
+export {VietsubClient} from '@hendy/vietsub-sdk';

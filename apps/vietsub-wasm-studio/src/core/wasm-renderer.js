@@ -1,0 +1,1 @@
+export class WasmRenderer{constructor(){this.ready=false;this.module=null;} async init(loader){this.module=await loader();this.ready=true;return this;} async renderSubtitle(frame){if(!this.ready)throw Error('Renderer not initialized'); return this.module.render?.(frame)??frame;} dispose(){this.module=null;this.ready=false;}}

@@ -1,0 +1,9 @@
+{
+  "$schema":"node_modules/wrangler/config-schema.json",
+  "name":"hendy-central-dispatcher",
+  "main":"workers/central-dispatcher/src/index.ts",
+  "compatibility_date":"2026-10-01",
+  "workers_dev":true,
+  "observability":{"enabled":true},
+  "vars":{"ENVIRONMENT":"production"}
+}

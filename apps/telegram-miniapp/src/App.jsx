@@ -1,0 +1,1 @@
+import React from 'react';export default function App(){return <div className="app"><h1>Hendy Vietsub</h1><p>Mini App</p><div className="cards"><button>🎬 Tạo Vietsub</button><button>💳 Nạp VietQR</button><button>🛒 Shop Code</button><button>⭐ VIP</button></div></div>}

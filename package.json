@@ -1,0 +1,26 @@
+{
+  "name":"hendy-server-bot-vietsub",
+  "private":true,
+  "version":"1.0.0",
+  "packageManager":"npm@10",
+  "workspaces":["apps/*","packages/*","workers/*"],
+  "scripts":{
+    "dev":"concurrently -k \"npm:dev:dispatcher\" \"npm:dev:admin\" \"npm:dev:studio\" \"npm:dev:telegram\"",
+    "dev:dispatcher":"npm --workspace workers/central-dispatcher run dev",
+    "dev:admin":"npm --workspace apps/admin-portal run dev",
+    "dev:studio":"npm --workspace apps/vietsub-wasm-studio run dev",
+    "dev:telegram":"npm --workspace apps/telegram-miniapp run dev",
+    "build":"npm run build:packages && npm run build:apps && npm run build:workers",
+    "build:packages":"npm --workspace packages/shared-types run build && npm --workspace packages/crypto-vault run build && npm --workspace packages/vietsub-sdk run build",
+    "build:apps":"npm --workspace apps/admin-portal run build && npm --workspace apps/vietsub-wasm-studio run build && npm --workspace apps/telegram-miniapp run build",
+    "build:workers":"npm --workspace workers/central-dispatcher run build",
+    "typecheck":"npm --workspace packages/shared-types run typecheck && npm --workspace workers/central-dispatcher run typecheck",
+    "db:migrate:local":"wrangler d1 migrations apply hendy_vietsub --local --config workers/central-dispatcher/wrangler.jsonc",
+    "db:migrate:remote":"wrangler d1 migrations apply hendy_vietsub --remote --config workers/central-dispatcher/wrangler.jsonc",
+    "dev:ai":"python -m uvicorn workers.vietsub-ai-backend.app.main:app --reload --host 0.0.0.0 --port 8000",
+    "validate:keys":"node scripts/validate-and-save-keys.js",
+    "deploy":"bash scripts/double-deploy.sh",
+    "health":"curl -fsS http://localhost:8787/health"
+  },
+  "devDependencies":{"concurrently":"^9.2.1","typescript":"^5.9.2","wrangler":"^4.40.0"}
+}
